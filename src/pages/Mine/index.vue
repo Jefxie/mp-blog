@@ -1,7 +1,7 @@
 <template>
-  <div class="counter-warp">
-    
-
+  <div class="mine">
+    <img class="mine-logo" :src="'/static/images/jef.r.320.png'" alt="">
+    <p>Jef.Site 谢小舜</p>
   </div>
 </template>
 
@@ -18,6 +18,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped lang="scss">
+  .mine{
+    width: 100%;
+    text-align: center;
+  }
 </style>

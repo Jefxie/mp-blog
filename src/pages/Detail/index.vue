@@ -1,6 +1,5 @@
 <template>
   <div class="detail">
-    <!-- <h1 class="detail-title">{{detailData.title || ''}}</h1> -->
     <div class="detail-content OneDark">
       <wxParse :content="detailContent||''" />
     </div>
@@ -21,18 +20,9 @@ export default {
     components: {
         wxParse,
     },
-
-    data() {
-        return {
-            logs: [],
-        };
-    },
     async onLoad(query) {
-        console.log('haha90', query);
         const res = await GetArticleDetail(query.id);
-        console.log('res', res.data);
         this.detailContent = decodeURIComponent(res.data.content);
-        console.log(this.detailContent)
         wx.setNavigationBarTitle({
             title: res.data.title,
         });

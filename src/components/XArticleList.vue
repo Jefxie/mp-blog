@@ -1,15 +1,15 @@
 <template>
     <ul class="xlist">
-        <li class="xlist-li" v-for="item in listData" :key="item.id" @click="emitClick(item.id)">
+        <li class="xlist-li" v-for="item in xListData" :key="item.id" @click="emitClick(item.id)">
             <h3 class="xlist-li-title">{{item.title}}</h3>
             <p class="xlist-li-ctx">{{item.abstract}}</p>
             <div class="xlist-li-binfo">
                 <div class="xlist-li-leftinfo">
-                    <span>分类：{{item.category.name}}</span>
+                    <span>#{{item.category.name}}</span>
                     &nbsp;&nbsp;
-                    <i>作者：{{item.author.name}}</i>
+                    <i>@{{item.author.name}}</i>
                 </div>
-                <span>日期：{{ item.create_at | dateFrom}}</span>
+                <span>Published {{item.create_at}}</span>
             </div>
         </li>
     </ul>
@@ -25,14 +25,23 @@ export default {
             default: () => [],
         },
     },
+    computed: {
+        xListData() {
+            const _list = JSON.parse(JSON.stringify(this.listData));
+            for (const iterator of _list) {
+                iterator.create_at = this.dateFrom(iterator.create_at);
+            }
+            return _list;
+        },
+    },
     methods: {
+        emitClick(id) {
+            this.$emit('on-click', id);
+        },
         dateFrom(time) {
             const _time = dayjs(time).from(dayjs());
             return _time;
         },
-        emitClick(id){
-            this.$emit('on-click',id)
-        }
     },
 };
 </script>
