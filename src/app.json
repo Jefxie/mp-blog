@@ -1,0 +1,28 @@
+{
+  "pages": ["pages/Home/main", "pages/Detail/main", "pages/Mine/main"],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "谢小舜",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#fafafa"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/Home/main",
+        "text": "首页",
+        "iconPath": "/static/images/default-home.png",
+        "selectedIconPath": "/static/images/active-home.png"
+      },
+      {
+        "pagePath": "pages/Mine/main",
+        "text": "我的",
+        "iconPath": "/static/images/default-my.png",
+        "selectedIconPath": "/static/images/active-my.png"
+      }
+    ],
+    "color": "#666",
+    "selectedColor": "#008bd2"
+  }
+}
